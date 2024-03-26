@@ -5,9 +5,9 @@ import (
 	"io/ioutil"
 	"log"
 
-	"baliance.com/gooxml/measurement"
 	"github.com/carmel/gooxml/common"
 	"github.com/carmel/gooxml/document"
+	"github.com/carmel/gooxml/measurement"
 )
 
 func ImageToDocx(imagePath string, savePath string) {
@@ -49,5 +49,15 @@ func ImageToDocx(imagePath string, savePath string) {
 		log.Fatalf("unable to add inline image: %s", err)
 	}
 	inl.SetSize(1*measurement.Inch, 1*measurement.Inch)
+	doc.AddParagraph()
+	doc.AddParagraph()
+	doc.AddParagraph()
+	doc.AddParagraph()
+	doc.AddParagraph()
+
+	para = doc.AddParagraph()
+	run = para.AddRun()
+	run.AddText("End of Doc")
+
 	doc.SaveToFile(savePath)
 }
